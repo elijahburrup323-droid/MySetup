@@ -120,32 +120,11 @@ bundle exec rails db:seed 2>/dev/null || warn "Seed data may already exist"
 log "Database setup complete"
 
 # =============================================================================
-# Step 6: Google Drive setup
+# Step 6: Google Drive for Desktop
 # =============================================================================
-step "Step 6: Google Drive Setup"
+step "Step 6: Google Drive for Desktop"
 
-info "BudgetHQ uses Google Drive for Kanban workflow."
-info "Expected path: G:\\My Drive\\ExpenseTracker\\"
-echo ""
-warn "MANUAL STEP: Install Google Drive for Desktop"
-info "  1. Download from: https://www.google.com/drive/download/"
-info "  2. Sign in with your Google account"
-info "  3. Google Drive will mount as G:\\ drive"
-info "  4. Verify the folder structure exists:"
-info "     G:\\My Drive\\ExpenseTracker\\1. Open Items"
-info "     G:\\My Drive\\ExpenseTracker\\2. In Process"
-info "     G:\\My Drive\\ExpenseTracker\\3. Ready for QA"
-echo ""
-info "Press Enter after setting up Google Drive (or to skip for now)..."
-read -r
-
-# Verify Google Drive
-if [ -d "/g/My Drive/ExpenseTracker" ]; then
-  log "Google Drive ExpenseTracker folder found!"
-else
-  warn "Google Drive folder not found at expected path."
-  warn "You can set this up later."
-fi
+source "$SCRIPTS_DIR/install-googledrive.sh"
 
 # =============================================================================
 # Step 7: Claude Code CLI setup
