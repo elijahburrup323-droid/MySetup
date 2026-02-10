@@ -1,0 +1,7 @@
+# Never commit actual secrets
+secrets/secrets.env
+secrets/secrets.env.gpg
+
+# OS
+Thumbs.db
+.DS_Store
